@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo">
+            <div class="arc-mini"></div>
+            <span>J.A.R.V.I.S OS</span>
+        </div>
+        <div class="system-info">
+            <span id="time"></span>
+            <span id="date"></span>
+        </div>
+        <div class="status-indicator">
+            <div class="pulse-dot" id="statusDot"></div>
+            <span id="statusText">Initializing</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Panel - System Info -->
+        <div class="left-panel">
+            <div class="panel-section">
+                <h3>SYSTEM STATUS</h3>
+                <div class="info-item">
+                    <span class="label">Voice Recognition:</span>
+                    <span class="value" id="voiceStatus">Offline</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Speech Synthesis:</span>
+                    <span class="value" id="speechStatus">Offline</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Commands Processed:</span>
+                    <span class="value" id="commandCount">0</span>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>QUICK COMMANDS</h3>
+                <div class="command-list">
+                    <div class="cmd-item">"YouTube play [video]"</div>
+                    <div class="cmd-item">"Search for [query]"</div>
+                    <div class="cmd-item">"Open [website].com"</div>
+                    <div class="cmd-item">"What time is it"</div>
+                    <div class="cmd-item">"What's the weather"</div>
+                    <div class="cmd-item">"Tell me a joke"</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Main Display -->
+        <div class="center-panel">
+            <div class="arc-reactor-large">
+                <div class="core-large"></div>
+                <div class="ring-large ring1"></div>
+                <div class="ring-large ring2"></div>
+                <div class="ring-large ring3"></div>
+            </div>
+            
+            <div class="voice-visualizer" id="visualizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="current-command" id="currentCommand">
+                Listening for commands...
+            </div>
+        </div>
+
+        <!-- Right Panel - Activity Log -->
+        <div class="right-panel">
+            <div class="panel-section">
+                <h3>ACTIVITY LOG</h3>
+                <div class="activity-log" id="activityLog">
+                    <div class="log-entry system">System initialized</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
