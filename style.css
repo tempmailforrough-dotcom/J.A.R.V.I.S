@@ -80,6 +80,23 @@ body::before {
     gap: 10px;
 }
 
+.start-btn {
+    background: linear-gradient(135deg, #00d4ff 0%, #0088cc 100%);
+    color: #000;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
 .pulse-dot {
     width: 12px;
     height: 12px;

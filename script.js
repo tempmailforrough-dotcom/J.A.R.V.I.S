@@ -31,6 +31,7 @@ const currentCommand = document.getElementById('currentCommand');
 const activityLog = document.getElementById('activityLog');
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
+const startBtn = document.getElementById('startBtn');
 
 let commandCounter = 0;
 let isListening = false;
@@ -346,7 +347,14 @@ recognition.onend = () => {
 window.addEventListener('load', () => {
     statusText.textContent = 'INITIALIZING';
     speechStatus.textContent = 'Online';
-    addToLog('J.A.R.V.I.S OS initialized', 'system');
+    addToLog('JARVIS OS initialized', 'system');
+    
+    // Check if speech recognition is supported
+    if (!recognition) {
+        statusText.textContent = 'NOT SUPPORTED';
+        addToLog('Speech recognition not supported in this browser', 'system');
+        return;
+    }
     
     // Request microphone permission and start
     setTimeout(() => {
@@ -356,8 +364,22 @@ window.addEventListener('load', () => {
                 speak('JARVIS operating system online. All systems operational.');
             }, 500);
         } catch (e) {
-            addToLog('Please allow microphone access and refresh', 'system');
-            statusText.textContent = 'AWAITING PERMISSION';
+            console.error('Recognition start error:', e);
+            addToLog('Click "Start Listening" to enable voice recognition', 'system');
+            statusText.textContent = 'CLICK TO START';
+            startBtn.style.display = 'inline-block';
         }
     }, 1000);
+});
+
+// Manual start button
+startBtn.addEventListener('click', () => {
+    try {
+        recognition.start();
+        startBtn.style.display = 'none';
+        speak('JARVIS operating system online. All systems operational.');
+    } catch (e) {
+        console.error('Manual start error:', e);
+        addToLog('Error: ' + e.message, 'system');
+    }
 });
